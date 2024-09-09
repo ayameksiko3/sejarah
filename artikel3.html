@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Title - My Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes slideInUp {
+            0% { transform: translateY(100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .animate-slide-in-up {
+            opacity: 0;
+            animation: slideInUp 1s ease-out forwards;
+        }
+
+        .animate-slide-in-down {
+            opacity: 0;
+            animation: slideInDown 1s ease-out forwards;
+        }
+
+        body.fade-in {
+            opacity: 1;
+            transition: opacity 1s ease-in;
+        }
+
+        /* Tambahkan untuk hamburger menu */
+        .menu {
+            display: none;
+        }
+
+        .menu.active {
+            display: block;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                document.body.classList.add('fade-in');
+            }, 100);
+
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('slide-in-up')) {
+                            entry.target.classList.add('animate-slide-in-up');
+                        } else if (entry.target.classList.contains('slide-in-down')) {
+                            entry.target.classList.add('animate-slide-in-down');
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(element => observer.observe(element));
+
+            // Hamburger menu toggle
+            document.querySelector('.hamburger').addEventListener('click', function () {
+                document.querySelector('.menu').classList.toggle('active');
+            });
+        });
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-800 opacity-0">
+
+<!-- Sticky Header -->
+<header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto p-4 flex justify-between items-center">
+        <a href="#" class="flex items-center space-x-3">
+            <img src="img/coverblog.png" class="h-8" alt="Logo">
+            <h1 class="text-2xl font-semibold text-gray-800"></h1>
+        </a>
+        <!-- Navigation for larger screens -->
+        <nav class="hidden md:flex space-x-6">
+            <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+            <a href="index.html#artikel" class="text-gray-600 hover:text-blue-600">Artiel</a>
+        </nav>
+        <!-- Hamburger Menu for mobile -->
+        <button class="md:hidden hamburger text-gray-600 hover:text-blue-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <nav class="menu hidden md:hidden bg-white shadow-lg">
+        <a href="index.html" class="block px-4 py-2 text-gray-600 hover:text-blue-600">Home</a>
+        <a href="index.html#artikel" class="block px-4 py-2 text-gray-600 hover:text-blue-600">Artikel</a>
+    </nav>
+</header>
+
+<!-- Article Section -->
+<main class="container mx-auto px-4 py-12">
+    <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <header class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-fixed bg-cover bg-center" style="background-image: url('img/artikel3.png'); height: 80vh;"></div>
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="relative z-10 p-6 max-w-2xl ml-6 text-left shadow-lg">
+                <h1 class="text-5xl font-bold text-white mb-4 animate-on-scroll slide-in-up">Pemilu 1955: Harapan, Ketegangan, dan Masa Depan Bangsa</h1>
+                <p class="text-gray-300 text-lg animate-on-scroll slide-in-up">| September 4, 2024</p>
+            </div>
+        </header>             
+        <section class="p-6">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Bayangkan sebuah negara baru, yang belum genap sepuluh tahun merdeka, tiba-tiba menggelar pemilihan umum pertamanya. Tahun 1955, Indonesia sedang bergejolak, dengan harapan tinggi dan ketidakpastian yang merasuki setiap sudut negeri. Pemilu pertama ini bukan hanya tentang memilih wakil rakyat, tapi juga tentang membentuk masa depan bangsa yang baru saja terlepas dari penjajahan.
+            </p>
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Bagaimana mungkin sebuah bangsa yang baru saja merdeka dan masih merangkak mencari identitas bisa langsung menyelenggarakan pemilu yang demokratis? Inilah cerita dramatis Pemilu 1955, yang hingga kini masih dikenang sebagai momen krusial dalam sejarah demokrasi Indonesia.
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Tahun 1945, Indonesia baru saja memproklamasikan kemerdekaannya, namun perjalanan menuju stabilitas jauh dari kata mudah. Setelah bertahun-tahun dijajah, Indonesia harus berhadapan dengan tantangan internal dan eksternal: dari upaya Belanda untuk kembali menjajah hingga pergulatan politik di dalam negeri.
+            </p>
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Pemilu 1955 hadir sebagai jawaban atas kegelisahan bangsa yang haus akan pemerintahan demokratis. Rakyat berharap pemilu ini bisa menciptakan pemerintahan yang stabil dan membawa keadilan bagi semua. Namun, harapan itu tidak berjalan mulus. Saat itu, Indonesia masih sangat muda dalam hal politik, dan keragaman suku, agama, serta ideologi menjadi tantangan tersendiri.
+            </p>
+            <hr class="my-4 border-gray-300">            
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up" style="line-height: 1.8; margin-bottom: 20px;">
+                Pemilu 1955 diikuti oleh partai-partai dengan berbagai ideologi, mulai dari nasionalis, Islam, hingga komunis. Empat kekuatan utama yang muncul dari pemilu ini adalah:
+                <ol class="list-decimal ml-8 animate-on-scroll slide-in-up">
+                    <li><strong>Partai Nasional Indonesia (PNI):</strong> Sebagai partai nasionalis terbesar, PNI memperjuangkan semangat kebangsaan yang dipimpin oleh tokoh-tokoh penting seperti Soekarno.</li>
+                    <li><strong>Partai Masyumi:</strong> Partai Islam modern yang dianggap mewakili kaum intelektual Muslim.</li>
+                    <li><strong>Nahdlatul Ulama (NU):</strong> Berbasis massa di kalangan Muslim tradisional, NU ikut serta untuk memperjuangkan kepentingan umat Islam di pedesaan.</li>
+                    <li><strong>Partai Komunis Indonesia (PKI):</strong> Yang mengejutkan banyak orang, PKI meraih banyak dukungan, terutama dari kalangan petani dan buruh.</li>
+                </ol>
+            </p>
+            <hr class="my-4 border-white">             
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Persaingan antar partai ini bukan sekadar pertarungan memperebutkan suara. Di baliknya, ada benturan ideologi besar yang akan menentukan masa depan Indonesia. Apakah negara ini akan condong ke nasionalisme, Islam, atau bahkan komunis?
+            </p>         
+            <hr class="my-4 border-gray-300">            
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">Pemilu ini sukses besar. Lebih dari 39 juta orang memberikan suara mereka, menjadikan Pemilu 1955 sebagai salah satu pemilu paling partisipatif di dunia saat itu. PNI memenangkan suara terbanyak dengan 22%, diikuti oleh Masyumi, NU, dan PKI. Namun, tidak ada satu partai pun yang mendapatkan mayoritas, dan inilah awal dari drama politik yang berkepanjangan. </p>
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">Bayangkan, hasil pemilu ini menciptakan sebuah parlemen yang penuh dengan suara berbeda, namun tidak ada yang cukup kuat untuk benar-benar memimpin. Kabinet sering kali berganti, pemerintahan tidak stabil, dan semua ini berujung pada kegagalan Konstituante (lembaga yang dibentuk untuk menyusun undang-undang dasar baru) menyelesaikan tugasnya. Hingga akhirnya, Soekarno mengambil alih dengan Dekrit Presiden 1959, mengembalikan UUD 1945, dan mengakhiri era demokrasi parlementer.
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Pemilu 1955 mungkin tidak sempurna, tetapi ia meninggalkan warisan penting bagi demokrasi Indonesia. Ini adalah bukti bahwa meskipun Indonesia masih sangat muda, bangsa ini memiliki tekad kuat untuk membangun pemerintahan yang berbasis pada suara rakyat.
+            </p><p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Bagi kita yang hidup di era modern, Pemilu 1955 mengajarkan bahwa demokrasi tidak datang secara instan. Perlu proses, waktu, dan kesabaran untuk menemukan keseimbangan dalam keragaman. Meski hasil pemilu tidak membawa stabilitas langsung, ia tetap menjadi fondasi penting bagi masa depan politik Indonesia.
+            </p>
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Dan kini, setiap kali kita memberikan suara dalam pemilu, ingatlah, kita berdiri di atas sejarah panjang dan penuh perjuangan yang dimulai sejak 1955. Saat itu, bangsa ini sedang belajar demokrasi, dan kita adalah penerus dari pelajaran besar tersebut.
+            </p>
+        </section>
+
+        <!-- References Section -->
+        <section class="bg-gray-50 p-6">
+            <h2 class="text-2xl font-semibold mb-4">Referensi</h2>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                <li><a href="https://kesbangpol.kapuashulukab.go.id/sejarah-dan-hasil-pemilihan-umum-1955/" class="text-blue-500 hover:underline">Sejarah Dan Hasil Pemilihan - kapuashulukab.go.id</a></li>
+                <li><a href="https://esi.kemdikbud.go.id/wiki/Pemilu_1955" class="text-blue-500 hover:underline">Pemilu 1955 - kemdikbud.go.id</a></li>
+                <li><a href="https://www.kompas.com/stori/read/2024/04/04/090000379/sejarah-pemilu-1955--tujuan-asas-peserta-dan-hasilnya" class="text-blue-500 hover:underline">Sejarah Pemilu 1955 - Kompas.com</a></li>
+                <li><a href="https://www.rri.co.id/nasional/552556/ini-sejarah-pemilu-di-indonesia-sejak-tahun-1955-sampai-2024" class="text-blue-500 hover:underline">Ini Sejarah Pemilu di Indonesia Sejak Tahun 1955 sampai 2024 - rri.go.id</a></li>
+            </ul>
+        </section>
+    </article>
+</main>
+
+<!-- Podcast Section -->
+<section class="container mx-auto px-4 py-12">
+    <div class="bg-white rounded-lg shadow-md p-8">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-4">Podcast Terkini</h2>        
+        <!-- Spotify Embed -->
+        <iframe src="https://open.spotify.com/embed/episode/36xkQMMrAiCHKUPOklIcuO?utm_source=generator" width="100%" height="232" frameborder="0" allow="encrypted-media"></iframe>
+
+        <p class="text-sm text-gray-500 mt-4">Jangan lupa untuk mengikuti kami di Spotify agar tidak ketinggalan episode terbaru!</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+        <p>&copy; 2024 Kelompok 1. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Title - My Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes slideInUp {
+            0% { transform: translateY(100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .animate-slide-in-up {
+            opacity: 0;
+            animation: slideInUp 1s ease-out forwards;
+        }
+
+        .animate-slide-in-down {
+            opacity: 0;
+            animation: slideInDown 1s ease-out forwards;
+        }
+
+        body.fade-in {
+            opacity: 1;
+            transition: opacity 1s ease-in;
+        }
+
+        /* Tambahkan untuk hamburger menu */
+        .menu {
+            display: none;
+        }
+
+        .menu.active {
+            display: block;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                document.body.classList.add('fade-in');
+            }, 100);
+
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('slide-in-up')) {
+                            entry.target.classList.add('animate-slide-in-up');
+                        } else if (entry.target.classList.contains('slide-in-down')) {
+                            entry.target.classList.add('animate-slide-in-down');
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(element => observer.observe(element));
+
+            // Hamburger menu toggle
+            document.querySelector('.hamburger').addEventListener('click', function () {
+                document.querySelector('.menu').classList.toggle('active');
+            });
+        });
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-800 opacity-0">
+
+<!-- Sticky Header -->
+<header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto p-4 flex justify-between items-center">
+        <a href="#" class="flex items-center space-x-3">
+            <img src="img/coverblog.png" class="h-8" alt="Logo">
+            <h1 class="text-2xl font-semibold text-gray-800"></h1>
+        </a>
+        <!-- Navigation for larger screens -->
+        <nav class="hidden md:flex space-x-6">
+            <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+            <a href="index.html#artikel" class="text-gray-600 hover:text-blue-600">Artiel</a>
+        </nav>
+        <!-- Hamburger Menu for mobile -->
+        <button class="md:hidden hamburger text-gray-600 hover:text-blue-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <nav class="menu hidden md:hidden bg-white shadow-lg">
+        <a href="index.html" class="block px-4 py-2 text-gray-600 hover:text-blue-600">Home</a>
+        <a href="index.html#artikel" class="block px-4 py-2 text-gray-600 hover:text-blue-600">Artikel</a>
+    </nav>
+</header>
+
+<!-- Article Section -->
+<main class="container mx-auto px-4 py-12">
+    <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <header class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-fixed bg-cover bg-center" style="background-image: url('img/artikel2.png'); height: 80vh;"></div>
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="relative z-10 p-6 max-w-2xl ml-6 text-left shadow-lg">
+                <h1 class="text-5xl font-bold text-white mb-4 animate-on-scroll slide-in-up">Sistem Kepartaian dalam Demokrasi Liberal: Membangun atau Meruntuhkan Indonesia?</h1>
+                <p class="text-gray-300 text-lg animate-on-scroll slide-in-up">| September 4, 2024</p>
+            </div>
+        </header>             
+        <section class="p-6">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Setelah Konstitusi 1945 diubah pada tahun 1950, Indonesia mengadopsi sistem parlementer sebagai bentuk pemerintahan yang menekankan pada kekuatan parlemen. Di bawah sistem ini, presiden berfungsi sebagai kepala negara sementara perdana menteri, yang diangkat oleh parlemen, berfungsi sebagai kepala pemerintahan. Sistem ini memberi wewenang besar kepada partai-partai politik yang ada untuk mempengaruhi keputusan pemerintahan.
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Era demokrasi liberal ini ditandai dengan keberagaman partai politik yang sangat tinggi. Partai-partai yang ada pada masa ini termasuk:
+                <ol class="list-decimal ml-8 animate-on-scroll slide-in-up">
+                    <li><strong>Partai Nasional Indonesia (PNI):</strong> Dipimpin oleh Soekarno, PNI merupakan partai yang mendukung nasionalisme dan mengedepankan persatuan bangsa. PNI berperan penting dalam perjuangan kemerdekaan dan memiliki pengaruh yang signifikan dalam politik Indonesia.</li>
+                    <li><strong>Partai Masyumi:</strong> Merupakan partai Islam yang didirikan sebagai wadah bagi aspirasi politik umat Islam di Indonesia. Partai ini memiliki pengaruh besar dalam politik, terutama dalam hal-hal yang berkaitan dengan hukum dan sosial Islam.</li>
+                    <li><strong>Partai Komunis Indonesia (PKI):</strong> PKI, sebagai partai yang mengusung ideologi komunisme, menjadi salah satu kekuatan politik yang signifikan. PKI berusaha memperjuangkan hak-hak kelas pekerja dan memiliki basis dukungan di kalangan buruh dan petani.</li>
+                </ol>
+            </p>
+            <hr class="my-4 border-gray-300">            
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">Dengan banyaknya partai politik, membentuk pemerintahan yang stabil menjadi tantangan tersendiri. Koalisi antar partai sering kali diperlukan untuk membentuk pemerintahan yang efektif. Namun, koalisi ini sering kali bersifat sementara dan tidak stabil, yang menyebabkan perubahan pemerintahan secara sering.
+
+                Pada masa ini, pemerintah sering kali diguncang oleh konflik internal antar partai dan pergeseran aliansi politik. Pemerintahan sering berganti-ganti, yang mencerminkan ketidakstabilan politik dan kesulitan dalam mencapai konsensus politik yang solid.</p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">Periode 1950-1959 diakhiri dengan perubahan besar dalam sistem politik Indonesia. Ketidakstabilan politik dan konflik antar partai yang berkepanjangan mengarah pada pelaksanaan Konstitusi 1959 dan pengembalian ke sistem pemerintahan yang lebih sentralistik, yaitu Demokrasi Terpimpin. Perubahan ini merupakan langkah besar dalam mencoba menciptakan stabilitas politik di Indonesia.</p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">Sistem kepartaian pada masa demokrasi liberal/parlementer 1950-1959 menunjukkan dinamika politik yang penuh warna di Indonesia. Keberagaman partai politik dan ketidakstabilan koalisi menjadi karakteristik utama dari periode ini. Meskipun penuh tantangan, era ini memberikan pelajaran berharga tentang pentingnya stabilitas politik dan kesadaran akan keragaman aspirasi politik dalam membangun sebuah bangsa. Sejarah ini mengajarkan kita tentang kompleksitas politik dan pentingnya konsensus dalam mencapai kemajuan negara.</p>
+        </section>
+
+        <!-- References Section -->
+        <section class="bg-gray-50 p-6">
+            <h2 class="text-2xl font-semibold mb-4">Referensi</h2>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                <li><a href="https://id.wikipedia.org/wiki/Demokrasi_liberal_di_Indonesia" class="text-blue-500 hover:underline">Demokrasi Liberal di Indonesia - Wikipedia</a></li>
+                <li><a href="https://sejarahlengkap.com/indonesia/masa-demokrasi-liberal" class="text-blue-500 hover:underline">Masa Demokrasi Liberal - Sejarah Lengkap</a></li>
+                <li><a href="https://tirto.id/m/masa-demokrasi-liberal" class="text-blue-500 hover:underline">Masa Demokrasi Liberal - Tirto</a></li>
+            </ul>
+        </section>
+    </article>
+</main>
+
+<!-- Podcast Section -->
+<section class="container mx-auto px-4 py-12">
+    <div class="bg-white rounded-lg shadow-lg p-6">
+        <h2 class="text-2xl font-bold text-gray-800 mb-4">Podcast Terkini</h2>
+        <p class="text-lg text-gray-700 mb-4"></p>
+        
+        <!-- Spotify Embed -->
+        <iframe src="https://open.spotify.com/embed/episode/1RcIz7jE4KMzyGN79QaZmu?utm_source=generator" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+
+        <p class="text-sm text-gray-600 mt-4">Jangan lupa untuk mengikuti podcast kami di Spotify agar tidak ketinggalan episode terbaru!</p>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+        <p>&copy; 2024 Kelompok 1. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

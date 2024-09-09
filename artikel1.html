@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Title - My Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes slideInUp {
+            0% { transform: translateY(100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .animate-slide-in-up {
+            opacity: 0;
+            animation: slideInUp 1s ease-out forwards;
+        }
+
+        .animate-slide-in-down {
+            opacity: 0;
+            animation: slideInDown 1s ease-out forwards;
+        }
+
+        body.fade-in {
+            opacity: 1;
+            transition: opacity 1s ease-in;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                document.body.classList.add('fade-in');
+            }, 100);
+
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('slide-in-up')) {
+                            entry.target.classList.add('animate-slide-in-up');
+                        } else if (entry.target.classList.contains('slide-in-down')) {
+                            entry.target.classList.add('animate-slide-in-down');
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(element => observer.observe(element));
+
+            // Hamburger menu toggle
+            document.querySelector('.hamburger').addEventListener('click', function () {
+                document.querySelector('.menu').classList.toggle('active');
+            });
+        });
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-800 opacity-0">
+
+<!-- Sticky Header -->
+<header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto p-4 flex justify-between items-center">
+        <a href="#" class="flex items-center space-x-3">
+            <img src="img/coverblog.png" class="h-8" alt="Logo">
+            <h1 class="text-2xl font-semibold text-gray-800"></h1>
+        </a>
+        <!-- Navigation for larger screens -->
+        <nav class="hidden md:flex space-x-6">
+            <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+            <a href="index.html#artikel" class="text-gray-600 hover:text-blue-600">Artiel</a>
+        </nav>
+        <!-- Hamburger Menu for mobile -->
+        <button class="md:hidden hamburger text-gray-600 hover:text-blue-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <nav class="menu hidden md:hidden bg-white shadow-lg">
+        <a href="index.html" class="block px-4 py-2 text-gray-600 hover:text-blue-600">Home</a>
+        <a href="index.html#artikel" class="block px-4 py-2 text-gray-600 hover:text-blue-600">Artikel</a>
+    </nav>
+</header>
+
+<!-- Article Section -->
+<main class="container mx-auto px-4 py-12">
+    <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <header class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-fixed bg-cover bg-center" style="background-image: url('img/artikel2.png'); height: 80vh;"></div>
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="relative z-10 p-6 max-w-2xl ml-6 text-left shadow-lg">
+                <h1 class="text-5xl font-bold text-white mb-4 animate-on-scroll slide-in-up">Gelombang Demokrasi Liberal di Indonesia: Kisah 9 Tahun yang Mengubah Bangsa</h1>
+                <p class="text-gray-300 text-lg animate-on-scroll slide-in-up">| September 4, 2024</p>
+            </div>
+        </header>             
+        <section class="p-6">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Bayangkan sebuah negara muda, baru saja merdeka dari penjajahan, kini berdiri di ambang era baru. Inilah Indonesia di tahun 1950. Setelah bertahun-tahun berjuang melawan penjajah dan melewati revolusi berdarah, bangsa ini akhirnya mendapat kesempatan untuk menentukan nasibnya sendiri. Apa yang terjadi selanjutnya adalah sebuah eksperimen demokrasi yang belum pernah terjadi sebelumnya di tanah air.
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                17 Agustus 1950 menjadi titik awal. Indonesia, yang sebelumnya berbentuk federal, kini bertransformasi menjadi negara kesatuan. Udara dipenuhi optimisme. Para pemimpin bangsa, dengan semangat menggebu, memutuskan untuk mengadopsi sistem parlementer ala Barat. Mereka percaya, inilah jalan menuju kemajuan dan kesejahteraan yang didambakan rakyat.
+            </p>
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Konstitusi baru disusun - Undang-Undang Dasar Sementara (UUDS) 1950. Dokumen ini menjadi landasan bagi sebuah sistem yang asing namun menjanjikan: demokrasi liberal.  
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Bayangkan sebuah panggung besar, di mana berbagai aktor politik bebas tampil dan memperebutkan perhatian publik. Itulah gambaran politik Indonesia di era ini. Partai-partai bermunculan bagai jamur di musim hujan. Dari yang berideologi nasionalis, agama, hingga komunis, semua berlomba menarik simpati rakyat.            
+            </p>
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Parlemen menjadi arena perdebatan yang sengit. Isu-isu krusial seperti dasar negara, pembangunan ekonomi, hingga politik luar negeri diperdebatkan dengan penuh gairah. Namun, di balik gegap gempita ini, tersimpan benih-benih ketidakstabilan.
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Selama sembilan tahun, Indonesia menyaksikan drama politik yang tak pernah berhenti. Tujuh kali kabinet berganti, seperti memutar kartu dalam permainan yang tak kunjung usai. Nama-nama seperti Mohammad Natsir, Sukiman Wirjosandjojo, Wilopo, Ali Sastroamidjojo, dan Burhanuddin Harahap silih berganti memimpin pemerintahan.
+            </p>
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Setiap pergantian kabinet membawa harapan baru, namun juga ketidakpastian. Rakyat mulai bertanya-tanya: akankah sistem ini membawa kemajuan yang dijanjikan?
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Di tengah gejolak politik, tahun 1955 menjadi titik penting. Untuk pertama kalinya dalam sejarah, Indonesia menggelar pemilihan umum. Antusiasme merebak di seluruh penjuru negeri. Empat partai besar - PNI, Masyumi, NU, dan PKI - muncul sebagai pemenang utama.
+            </p>
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Namun, alih-alih membawa stabilitas, hasil pemilu justru mempertajam perbedaan. Perdebatan ideologis di Konstituante semakin memanas, terutama mengenai dasar negara. Pancasila dan Islam menjadi dua kutub yang sulit dipertemukan.
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Sementara elit politik sibuk berdebat di Jakarta, di berbagai daerah, gejolak mulai muncul. Pemberontakan PRRI/Permesta di Sumatera dan Sulawesi menjadi pukulan telak bagi pemerintah pusat. Ekonomi pun mulai goyah, inflasi melonjak, dan kesejahteraan rakyat terancam.
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Pada 5 Juli 1959, Presiden Soekarno, yang selama ini lebih banyak menjadi figur simbolis, akhirnya mengambil langkah dramatis. Melalui Dekrit Presiden, ia membubarkan Konstituante dan mengembalikan Indonesia ke UUD 1945. Era Demokrasi Liberal pun berakhir, digantikan oleh era baru yang dikenal sebagai Demokrasi Terpimpin.
+            </p><hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Meski singkat, sembilan tahun Demokrasi Liberal meninggalkan jejak yang tak terhapuskan dalam sejarah Indonesia. Ia menjadi pelajaran berharga tentang tantangan mengelola keragaman dalam bingkai demokrasi. Era ini juga melahirkan tokoh-tokoh politik yang nantinya akan mewarnai perjalanan bangsa di dekade-dekade selanjutnya.
+            </p>
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Demokrasi Liberal 1950-1959 mungkin telah berlalu, namun dampaknya masih terasa hingga kini. Ia menjadi pengingat bahwa jalan menuju demokrasi yang matang penuh liku, namun tetap layak untuk diperjuangkan.            </p>
+        </section>
+
+        <!-- References Section -->
+        <section class="bg-gray-50 p-6">
+        </p><hr class="my-4 border-gray-300">
+            <h2 class="text-2xl font-semibold mb-4">Referensi</h2>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                <li><a href="https://id.wikipedia.org/wiki/Era_Demokrasi_Liberal_(1950%E2%80%931959)" class="text-blue-500 hover:underline">Era Demokrasi Liberal - Wikipedia</a></li>
+                <li><a href="https://tirto.id/sejarah-politik-masa-demokrasi-liberal-pemerintahan-dan-kepartaian-gntU" class="text-blue-500 hover:underline">Masa Demokrasi Liberal - Tirto.id</a></li>
+            </ul>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+        <p>&copy; 2024 Kelompok 1. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article Title - My Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        @keyframes slideInUp {
+            0% { transform: translateY(100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            0% { transform: translateY(-100%); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        .animate-slide-in-up {
+            opacity: 0;
+            animation: slideInUp 1s ease-out forwards;
+        }
+
+        .animate-slide-in-down {
+            opacity: 0;
+            animation: slideInDown 1s ease-out forwards;
+        }
+
+        body.fade-in {
+            opacity: 1;
+            transition: opacity 1s ease-in;
+        }
+
+        /* Tambahkan untuk hamburger menu */
+        .menu {
+            display: none;
+        }
+
+        .menu.active {
+            display: block;
+        }
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                document.body.classList.add('fade-in');
+            }, 100);
+
+            const elements = document.querySelectorAll('.animate-on-scroll');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (entry.target.classList.contains('slide-in-up')) {
+                            entry.target.classList.add('animate-slide-in-up');
+                        } else if (entry.target.classList.contains('slide-in-down')) {
+                            entry.target.classList.add('animate-slide-in-down');
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(element => observer.observe(element));
+
+            // Hamburger menu toggle
+            document.querySelector('.hamburger').addEventListener('click', function () {
+                document.querySelector('.menu').classList.toggle('active');
+            });
+        });
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-800 opacity-0">
+
+<!-- Sticky Header -->
+<header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto p-4 flex justify-between items-center">
+        <a href="#" class="flex items-center space-x-3">
+            <img src="img/coverblog.png" class="h-8" alt="Logo">
+            <h1 class="text-2xl font-semibold text-gray-800"></h1>
+        </a>
+        <!-- Navigation for larger screens -->
+        <nav class="hidden md:flex space-x-6">
+            <a href="index.html" class="text-gray-600 hover:text-blue-600">Home</a>
+            <a href="#" class="text-gray-600 hover:text-blue-600">Artikel</a>
+        </nav>
+        <!-- Hamburger Menu for mobile -->
+        <button class="md:hidden hamburger text-gray-600 hover:text-blue-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <nav class="menu hidden md:hidden bg-white shadow-lg">
+        <a href="index.html" class="block px-4 py-2 text-gray-600 hover:text-blue-600">Home</a>
+        <a href="index.html#artikel" class="block px-4 py-2 text-gray-600 hover:text-blue-600">Artikel</a>
+    </nav>
+</header>
+
+<!-- Article Section -->
+<main class="container mx-auto px-4 py-12">
+    <article class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <header class="relative overflow-hidden">
+            <div class="absolute inset-0 bg-fixed bg-cover bg-center" style="background-image: url('img/artikel4.png'); height: 80vh;"></div>
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="relative z-10 p-6 max-w-2xl ml-6 text-left shadow-lg">
+                <h1 class="text-5xl font-bold text-white mb-4 animate-on-scroll slide-in-up">Perjuangan Ekonomi Indonesia di Era Demokrasi Liberal: Antara Harapan dan Ketidakpastian</h1>
+                <p class="text-gray-300 text-lg animate-on-scroll slide-in-up">| September 4, 2024</p>
+            </div>
+        </header>             
+        <section class="p-6">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Periode Demokrasi Liberal (1950-1959) di Indonesia tidak hanya dikenal sebagai masa pergantian pemerintahan yang cepat dan tak menentu, namun juga sebagai masa penuh tantangan dalam bidang ekonomi. Di tengah goncangan politik yang terus-menerus, ekonomi Indonesia menghadapi kondisi yang tidak mudah, namun tetap berusaha menapaki jalur pembangunan.            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Pasca-kemerdekaan, Indonesia mewarisi sistem ekonomi yang nyaris runtuh akibat eksploitasi kolonial Belanda dan kehancuran dari masa perang kemerdekaan. Dalam situasi tersebut, pemerintah harus berjuang keras membangun kembali sektor-sektor kunci seperti pertanian dan infrastruktur.
+            </p>
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                <a class="text-gray-700 no-underline border-b-2 border-gray-700" >Pemerintah Indonesia kala itu menghadapi dilema besar</a> bagaimana membangun ekonomi yang mandiri sambil melibatkan berbagai pihak, mulai dari partai-partai politik hingga kelompok ekonomi yang beragam? Di bawah sistem parlementer, pergantian kabinet yang terjadi setiap beberapa bulan sekali justru menghambat stabilitas dan kesinambungan kebijakan ekonomi.
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">Berbagai kabinet mencoba memformulasikan strategi untuk membangun ekonomi. Salah satunya adalah <a class="text-gray-700 no-underline border-b-2 border-gray-700" > Rencana Pembangunan Lima Tahun </a> (1956-1961) yang dicanangkan kabinet Burhanuddin Harahap. Rencana ini bertujuan untuk meningkatkan produksi pertanian dan memperbaiki infrastruktur, sebuah visi ambisius yang sayangnya terganggu oleh pergantian pemerintahan yang cepat dan kurangnya koordinasi.
+            </p>
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">Pada akhir dekade, pemerintah mulai mengalihkan fokusnya pada upaya nasionalisasi perusahaan asing, terutama perusahaan-perusahaan milik Belanda, yang dilakukan pada tahun 1957. Nasionalisasi ini bertujuan untuk mengurangi pengaruh asing dalam perekonomian Indonesia, sebuah langkah penting yang menghadapi tantangan baru: kekurangan tenaga ahli dan sumber daya untuk mengelola perusahaan-perusahaan yang dinasionalisasi.
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Sebagai negara agraris, sektor pertanian adalah tulang punggung perekonomian Indonesia. Namun, ketergantungan terhadap pertanian yang tidak efisien serta keterbatasan teknologi dan modal menjadi penghambat. Berbagai program diluncurkan untuk meningkatkan hasil pertanian, namun sering kali hasilnya belum maksimal. Masalah ini menjadi fokus utama, tetapi reformasi agraria yang diharapkan dapat memperbaiki situasi belum dapat dilaksanakan secara efektif.
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                <a class="text-gray-700 no-underline border-b-2 border-gray-700" >Tidak adanya stabilitas politik menjadi penghalang utama bagi pembangunan ekonomi.</a> Pergantian kabinet yang terjadi berkali-kali dalam waktu singkat menyebabkan banyak proyek pembangunan terhenti di tengah jalan. Beberapa proyek infrastruktur yang direncanakan untuk membantu memperkuat ekonomi rakyat menjadi terabaikan.
+            </p>
+            <hr class="my-4 border-gray-300">
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Meskipun masa Demokrasi Liberal penuh dengan ketidakpastian politik dan ekonomi, ada upaya besar dari pemerintah untuk merencanakan pembangunan jangka panjang. Kebijakan nasionalisasi perusahaan asing, meskipun kontroversial, menunjukkan bahwa pemerintah berusaha untuk mengurangi ketergantungan ekonomi terhadap kekuatan asing. Sayangnya, ketidakstabilan politik yang konstan membuat banyak upaya pembangunan ekonomi tidak dapat direalisasikan dengan baik.
+            </p>
+            <p class="text-lg text-gray-700 mb-4 animate-on-scroll slide-in-up">
+                Sebagai sebuah babak dalam sejarah Indonesia, masa ini mencerminkan perjalanan panjang negara menuju kemandirian ekonomi yang masih terus diperjuangkan hingga hari ini.
+            </p>
+        </section>
+
+        <!-- References Section -->
+        <section class="bg-gray-50 p-6">
+            <h2 class="text-2xl font-semibold mb-4">Referensi</h2>
+            <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                <li><a href="https://www.kompas.com/skola/read/2022/11/22/140000369/perkembangan-ekonomi-pada-masa-demokrasi-parlementer-liberal-?page=all" class="text-blue-500 hover:underline">Perkembangan Ekonomi pada Masa Demokrasi Parlementer (Liberal) - Kompas</a></li>
+                <li><a href="https://www.scribd.com/presentation/610677688/kondisi-ekonomi-indonesia-masa-demokrasi-liberal" class="text-blue-500 hover:underline">Kondisi Ekonomi Indonesia Masa Demokrasi Liberal - Scribd</a></li>
+                <li><a href="" class="text-blue-500 hover:underline"> - </a></li>
+            </ul>
+        </section>
+    </article>
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+        <p>&copy; 2024 Kelompok 1. All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

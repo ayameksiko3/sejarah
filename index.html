@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Responsive Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+            @keyframes fade-in-up {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-fade-in-up {
+        animation: fade-in-up 1s ease-out forwards;
+    }
+
+    .delay-200 {
+        animation-delay: 0.2s;
+    }
+        /* 3D Content Section */
+.parent {
+  width: 100%;
+  padding: 20px;
+  perspective: 1000px;
+}
+
+.card {
+  position: relative;
+  padding-top: 50px;
+  border: 3px solid rgb(255, 255, 255);
+  transform-style: preserve-3d;
+  background: linear-gradient(135deg,#0000 18.75%,#f3f3f3 0 31.25%,#0000 0),
+      repeating-linear-gradient(45deg,#f3f3f3 -6.25% 6.25%,#ffffff 0 18.75%);
+  background-size: 60px 60px;
+  background-position: 0 0, 0 0;
+  background-color: #f0f0f0;
+  width: 100%;
+  box-shadow: rgba(142, 142, 142, 0.3) 0px 30px 30px -10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.card:hover {
+  background-position: -100px 100px, -100px 100px;
+  transform: rotate3d(0.5, 1, 0, 30deg);
+}
+
+.card-image {
+  width: 100%;
+  height: auto;
+  border-bottom: 3px solid rgb(255, 255, 255);
+}
+
+.content-box {
+  background: rgba(0, 123, 255, 0.8); /* Adjusted color */
+  padding: 60px 25px 25px 25px;
+  transform-style: preserve-3d;
+  transition: all 0.5s ease-in-out;
+}
+
+.content-box .card-title {
+  display: inline-block;
+  color: white;
+  font-size: 25px;
+  font-weight: 900;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 50px);
+}
+
+.content-box .card-title:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.content-box .card-content {
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #f2f2f2;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 30px);
+}
+
+.content-box .card-content:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.content-box .see-more {
+  cursor: pointer;
+  margin-top: 1rem;
+  display: inline-block;
+  font-weight: 900;
+  font-size: 9px;
+  text-transform: uppercase;
+  color: rgb(7, 185, 255);
+  background: white;
+  padding: 0.5rem 0.7rem;
+  transition: all 0.5s ease-in-out;
+  transform: translate3d(0px, 0px, 20px);
+}
+
+.content-box .see-more:hover {
+  transform: translate3d(0px, 0px, 60px);
+}
+
+.date-box {
+  display: none; /* Hide the date box */
+}
+
+</style>
+</head>
+<body>
+<class="bg-gray-100 text-gray-800 opacity-0 transition-opacity duration-100"> 
+
+<!-- Sticky Header -->
+<header class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container mx-auto p-4 flex justify-between items-center">
+        <a href="#" class="flex items-center space-x-3">
+            <img src="img/coverblog.png" class="h-8" alt="Logo">
+            <h1 class="text-2xl font-semibold text-gray-800"></h1>
+        </a>
+        <!-- Navigation for larger screens -->
+        <nav class="hidden md:flex space-x-6">
+            <a href="#" class="text-gray-600 hover:text-blue-600">Home</a>
+            <a href="#artikel" class="text-gray-600 hover:text-blue-600">Artikel</a>
+        </nav>
+        <!-- Hamburger Menu for mobile -->
+        <button class="md:hidden hamburger text-gray-600 hover:text-blue-600 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+    <!-- Mobile Menu -->
+    <nav class="menu hidden md:hidden bg-white shadow-lg">
+        <a href="#" class="block px-4 py-2 text-gray-600 hover:text-blue-600">Home</a>
+        <a href="#artikel" class="block px-4 py-2 text-gray-600 hover:text-blue-600">Artikel</a>
+    </nav>
+</header>
+
+<!-- Enhanced Hero Section -->
+<section class="relative bg-cover bg-center h-screen" style="background-image: url('img/baner.jpg');">
+    <!-- Overlay dengan gradient -->
+    <div class="absolute inset-0 bg-gradient-to-r from-blue-900 via-blue-700 to-blue-500 opacity-80"></div>
+    <!-- Konten Hero -->
+    <div class="container mx-auto relative z-10 flex flex-col justify-center items-center h-full text-center py-24">
+        <!-- Animasi untuk teks -->
+        <h1 class="text-6xl md:text-7xl font-extrabold text-white mb-4 animate-fade-in-up">
+            Blog Kelompok 1
+        </h1>
+        <p class="text-2xl md:text-3xl text-white mb-8 max-w-3xl animate-fade-in-up delay-200">
+            Selamat datang di blog kami, tempat berbagi artikel <a class="text-white no-underline border-b-2 border-white" >menarik</a> dan <a class="text-white no-underline border-b-2 border-white" >inspiratif</a>.
+        </p>
+        <!-- Tombol dengan efek animasi -->
+        <a href="#artikel" class="inline-block px-10 py-4 bg-white text-blue-600 font-semibold rounded-full shadow-lg hover:bg-blue-700 hover:text-white transition duration-300 transform hover:scale-105 hover:rotate-1">
+            Baca Artikel
+        </a>
+    </div>
+</section>
+
+<!-- Main Content -->
+<main id="artikel" class="container mx-auto px-4 py-8">
+    <div class="grid gap-8 md:grid-cols-2">
+        <div class="parent">
+            <div class="card">
+                <img src="img/artikel1.png" alt="Blog Post Image" class="card-image">
+                <div class="content-box">
+                    <span class="card-title">Gelombang Demokrasi Liberal di Indonesia: Kisah 9 Tahun yang Mengubah Bangsa</span>
+                    <p class="card-content">
+                    </p>
+                    <a href="artikel1.html" class="see-more">Baca</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="parent">
+            <div class="card">
+                <img src="img/artikel2.png" alt="Blog Post Image" class="card-image">
+                <div class="content-box">
+                    <span class="card-title">Sistem Kepartaian dalam Demokrasi Liberal: Membangun atau Meruntuhkan Indonesia?</span>
+                    <p class="card-content">
+                    </p>
+                    <a href="artikel2.html" class="see-more">Baca</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="parent">
+            <div class="card">
+                <img src="img/artikel3.png" alt="Blog Post Image" class="card-image">
+                <div class="content-box">
+                    <span class="card-title">Pemilu 1955: Harapan, Ketegangan, dan Masa Depan Bangsa</span>
+                    <p class="card-content">
+                    </p>
+                    <a href="artikel3.html" class="see-more">Baca</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="parent">
+            <div class="card">
+                <img src="img/artikel4.png" alt="Blog Post Image" class="card-image">
+                <div class="content-box">
+                    <span class="card-title">Perjuangan Ekonomi Indonesia di Era Demokrasi Liberal: Antara Harapan dan Ketidakpastian</span>
+                    <p class="card-content">
+                    </p>
+                    <a href="artikel4.html" class="see-more">Baca</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-white rounded-lg shadow-lg mt-12">
+    <div class="container mx-auto p-4">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <a href="#" class="flex items-center mb-4 md:mb-0 space-x-3 rtl:space-x-reverse">
+                <img src="img/coverblog.png" class="h-12" alt="Blog Logo"> 
+                <span class="text-2xl font-semibold text-gray-800"></span>
+            </a>
+            <ul class="flex flex-wrap items-center mb-6 text-sm font-medium text-gray-500 md:space-x-6">
+                <li><a href="#" class="hover:underline">About</a></li>
+                <li><a href="#" class="hover:underline">Privacy Policy</a></li>
+                <li><a href="#" class="hover:underline">Licensing</a></li>
+                <li><a href="#" class="hover:underline">Contact</a></li>
+            </ul>
+        </div>
+        <hr class="my-6 border-gray-200">
+        <span class="block text-sm text-gray-500 text-center">© 2024 <a href="#" class="hover:underline">My Blog™</a>. All Rights Reserved.</span>
+    </div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        setTimeout(function () {
+            document.body.classList.add('fade-in');
+        }, 100);
+
+        const elements = document.querySelectorAll('.animate-on-scroll');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('slide-in-up')) {
+                        entry.target.classList.add('animate-slide-in-up');
+                    } else if (entry.target.classList.contains('slide-in-down')) {
+                        entry.target.classList.add('animate-slide-in-down');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(element => observer.observe(element));
+
+        // Hamburger menu toggle
+        document.querySelector('.hamburger').addEventListener('click', function () {
+            document.querySelector('.menu').classList.toggle('active');
+        });
+    });
+</script>
+</body>
+</html>
